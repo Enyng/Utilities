@@ -1,0 +1,27 @@
+# ATAJOS LINUX
+
+ -	*Sustituir cadena por otra en todo el archivo* :  :%s/“Lo que se cambia”/“Lo nuevo que se pone”/g
+ -	*Borrar todas las lineas de un archivo*:           :1,$d
+ -	*Copiar todos los .jpg de subcarpetas:*  find /var/www/html/akeneo/pim-community-standard/app/file_storage/catalog -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) -exec cp '{}' /tmp/nuevas/ \;
+ -	*Comprimir*: 7za a -r files.zip nuevas
+ -	*No hay red Centros* - dhclient –v
+ -	*Backup MYSQL con fecha:*  mysqldump -u root -pambiser akeneo_pim > /tmp/akeneo_pim_"$(date +%d-%m-%Y)”.sql
+ -	*Sin contraseña*: mysqldump -u root -p akeneo_pim > /tmp/akeneo_pim_"$(date +%d-%m-%Y)”.sql
+ -	*Backup archivos:* akeneo/pim-community-standard/app
+Carpeta mysql: http://stackoverflow.com/questions/1795176/how-to-change-mysql-data-directory
+ -	shasum -a 512 video_201707121211040200_FH.mov - Para crear fingerprint
+ -	*FFMPEG de mp3 a video*-> ffmpeg -loop 1 -i imagenBase.jpg -i happier.mp3 -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest out.mp4
+ -	*FFMPEG Alternativa mp3+imagen a video-*> ffmpeg -y -loop 1 -i imagenBase.jpg -i video_201709281929360200_FH.m4a -c:v mpeg4 -tune stillimage -c:a copy -shortest video_201709281929360200_FH.mp4
+ -	*Sniffer para la red* —> sudo tcpdump host 192.168.0.32
+ -	*Cambiar idioma teclado* -> loadkeys es
+ -	*Comandos para vim*:
+		c+t+caracter(Ejemplo paréntesis)   = borra till(hasta) el carácter 
+		c+i+caracter     = borra dentro del caracter(por ejemplo dentro de unas comillas)
+		v+j    = volver a donde estaba antes de editar
+ -	*Encontrar RaspBerry Pi en la  red:*   arp -na | grep -i b8:27:eb
+-	*Backup Raspberry Pi en remoto:* 		ssh pi@xx.x.x.xx "sudo dd if=/dev/mmcblk0 bs=1M | gzip -" | dd of=~/Desktop/pibackup.gz
+-	*Restaurar Raspberry Pi en SD:*	diskutil unmountDisk /dev/disk#
+gzip -dc ~/Desktop/pibackup.gz | sudo dd of=/dev/rdisk# bs=1m conv=noerror,sync
+-	Si no va Mysql en Mac : 
+		`cd /tmp
+		ln -s /Applications/MAMP/tmp/mysql/mysql.sock ./mysql.sock`
